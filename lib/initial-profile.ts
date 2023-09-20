@@ -6,6 +6,7 @@ export const initialProfile = async () => {
   const user = await currentUser();
 
   if( !user ) {
+    console.log('NO user found');
     return redirectToSignIn();
   }
 
@@ -16,6 +17,8 @@ export const initialProfile = async () => {
   });
 
   if (profile ) {
+    console.log(`AN EXISTING PROFILE IS:`);
+    console.log(profile);
     return profile;
   }
 
@@ -28,6 +31,8 @@ export const initialProfile = async () => {
     }
   });
 
+  console.log("there is a NEW PROFILE:");
+  console.log(newProfile);
   return newProfile;
 
 };
